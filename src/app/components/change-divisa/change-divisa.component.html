@@ -1,0 +1,65 @@
+<section class="section-divisa">
+  <div>
+    <h2 class="section-divisa__subtitle">Tipo de Cambio</h2>
+    <div class="section-divisa__divisa">
+      <h3>
+        Compra:
+        <span class="section-divisa__divisa-span">{{ compra }}</span>
+      </h3>
+      <span class="section-divisa__division"></span>
+      <h3>
+        Venta: <span class="section-divisa__divisa-span">{{ venta }}</span>
+      </h3>
+    </div>
+  </div>
+  <div *ngIf="isDollar" class="change-divisa">
+    <div>
+      <p class="change-divisa__name">Envías dólares</p>
+      <div class="change_divisa__content-data">
+        <p class="change-divisa__cod-money">USD $</p>
+        <input
+          #box
+          (keyup.enter)="changeToSoles(box.value)"
+          class="change-divisa__input"
+        />
+      </div>
+    </div>
+    <button (click)="buttonChange()" class="change-divisa__button-change">
+      <i class="fa-solid fa-arrows-rotate"></i>
+    </button>
+    <div>
+      <p class="change-divisa__name">Recibes soles</p>
+      <div class="change_divisa__content-data">
+        <p class="change-divisa__cod-money">PEN S/.</p>
+        <p class="change-divisa__result">{{ cambioDolar }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isDollar" class="change-divisa">
+    <div>
+      <p class="change-divisa__name">Envías soles</p>
+      <div class="change_divisa__content-data">
+        <p class="change-divisa__cod-money">PEN S/.</p>
+        <input
+          #box
+          (keyup.enter)="changeToDollar(box.value)"
+          class="change-divisa__input"
+        />
+      </div>
+    </div>
+    <button (click)="buttonChange()" class="change-divisa__button-change">
+      <i class="fa-solid fa-arrows-rotate"></i>
+    </button>
+    <div>
+      <p class="change-divisa__name">Recibes dólares</p>
+      <div class="change_divisa__content-data">
+        <p class="change-divisa__cod-money">USD $</p>
+        <p class="change-divisa__result">{{ cambioSoles }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="btn-auth">
+    <h2 class="btn-auth__title">Iniciar Operación</h2>
+  </div>
+</section>

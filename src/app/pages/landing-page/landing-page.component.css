@@ -1,0 +1,91 @@
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f4f4f4;
+  width: 100%;
+  height: 100%;
+}
+
+/* barra de navegacion*/
+.nav {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  color: #414141;
+  box-shadow: 0px 1px 10px 1px lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav__title {
+  margin-left: 20px;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.nav__title-span {
+  color: #265e6c;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+/* cuerpo */
+
+.body__title {
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 20px 0px;
+  font-weight: 900;
+  color: #414141;
+}
+.body__title-span {
+  color: #265e6c;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+/* prueba de cambio de dolar  */
+.section-change-divisa {
+  width: 100%;
+}
+/* footer  */
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background-color: #265e6c;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  .section-responsive {
+    height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 60px;
+  }
+
+  .body {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .body__title {
+    font-size: 2rem;
+  }
+  .nav__title-span {
+    font-size: 2rem;
+  }
+  .body__title-span {
+    font-size: 2rem;
+  }
+}

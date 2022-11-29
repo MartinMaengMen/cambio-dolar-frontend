@@ -1,0 +1,144 @@
+/* prueba de cambio de dolar  */
+.section-divisa__subtitle {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 900;
+  color: #414141;
+}
+
+.section-divisa__divisa {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  color: #414141;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.section-divisa__division {
+  height: 16px;
+  width: 2px;
+  background-color: #265e6c;
+  margin: 0px 16px;
+}
+.section-divisa__divisa-span {
+  font-size: 1.1rem;
+  color: #265e6c;
+}
+
+.section-divisa {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 90%;
+  border-radius: 16px;
+  box-shadow: 0px 1px 10px 1px lightgray;
+}
+.change-divisa {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 8px;
+  width: 90%;
+}
+
+.change_divisa__content-data {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.change-divisa__input {
+  border: none;
+  border-radius: 16px;
+  margin: auto 4px;
+  background-color: #f4f4f4;
+  color: #265e6c;
+  font-size: 20px;
+  font-weight: 900;
+  height: 40px;
+  text-align: end;
+  padding-right: 16px;
+}
+.change-divisa__input:focus {
+  outline: none;
+}
+.change-divisa__name {
+  color: #414141;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 4px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.change-divisa__result {
+  padding: 10px;
+  color: #265e6c;
+  font-size: 20px;
+  font-weight: 900;
+  border: none;
+  width: 210px;
+  text-align: end;
+  background-color: #f4f4f4;
+  border-radius: 16px;
+  margin-bottom: 8px;
+  padding-right: 16px;
+}
+
+.change-divisa__cod-money {
+  color: #414141;
+  font-weight: 900;
+  width: 60px;
+}
+
+.change-divisa__button-change {
+  border: none;
+  background-color: #265e6c;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  margin: 8px 4px;
+  cursor: pointer;
+  color: white;
+}
+.change-divisa__button-change:hover {
+  background-color: rgb(42, 83, 95);
+}
+/* autenticacion */
+
+.btn-auth {
+  background-color: #265e6c;
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  box-shadow: 0px 0px 10px 1px gray;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+}
+.btn-auth:hover {
+  background-color: rgb(42, 83, 95);
+}
+
+@media (min-width: 768px) {
+  .section-divisa {
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  .section-divisa {
+    width: 75%;
+  }
+}

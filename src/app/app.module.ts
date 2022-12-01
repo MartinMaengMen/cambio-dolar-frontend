@@ -9,6 +9,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ChangeDivisaComponent } from './components/change-divisa/change-divisa.component';
+import { TransaccionComponent } from './pages/transaccion/transaccion.component';
+import { FormsModule } from '@angular/forms';
+
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
@@ -17,13 +21,15 @@ import { ChangeDivisaComponent } from './components/change-divisa/change-divisa.
     RegisterComponent,
     LandingPageComponent,
     ChangeDivisaComponent
+    TransaccionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    CountdownModule,
   ],
-
   providers: [],
   bootstrap: [AppComponent],
 })

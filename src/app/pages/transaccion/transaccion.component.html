@@ -1,0 +1,160 @@
+<div class="main">
+  <nav class="nav">
+    <div>
+      <h1 class="nav__title">
+        Cambio
+        <span class="nav__title-span">Dolar</span>
+      </h1>
+    </div>
+  </nav>
+
+  <section class="transaccion-container">
+    <div class="app-change-divisa">
+      <app-change-divisa [isAuthChild]="isAuth"></app-change-divisa>
+    </div>
+
+    <section class="section-container">
+      <div class="countdown-container">
+        <countdown
+          #cd
+          [config]="{ leftTime: 120, format: 'm:s' }"
+          (event)="handleEvent($event)"
+          class="countdown"
+        ></countdown>
+      </div>
+
+      <div class="btn-conitaner">
+        <p
+          (click)="buttonChange(true)"
+          class="btn-container__btn"
+          [ngClass]="styleChangeSoles()"
+        >
+          Recibir soles
+        </p>
+        <p
+          (click)="buttonChange(false)"
+          class="btn-container__btn"
+          [ngClass]="styleChangeDolar()"
+        >
+          Recibir dólares
+        </p>
+      </div>
+      <form class="form__change-money" *ngIf="isDollar">
+        <label class="form__label"
+          >Cuenta en dólares para enviar tu dinero</label
+        >
+        <input
+          type="text"
+          class="form__input-dollar"
+          [(ngModel)]="inputDollar"
+          [ngModelOptions]="{ standalone: true }"
+          [ngClass]="addStyleStateInputDollar()"
+          (keyup)="getAccountDollar()"
+          placeholder="Ingresa tu cuenta en dólares"
+        />
+        <span class="form__error" *ngIf="!isValueDollarInputCorrect">{{
+          errorMessageDollar
+        }}</span>
+        <label class="form__label"
+          >Cuenta en soles para recibir tu dinero</label
+        >
+        <input
+          type="text"
+          class="form__input-soles"
+          [(ngModel)]="inputSoles"
+          [ngModelOptions]="{ standalone: true }"
+          [ngClass]="addStyleStateInputSoles()"
+          (keyup)="getAccountSoles()"
+          placeholder="Ingresa tu cuenta en soles"
+        />
+        <span class="form__error" *ngIf="!isValueSolesInputCorrect">{{
+          errorMessageSoles
+        }}</span>
+        <label class="form__label">Monto a cambiar</label>
+        <input
+          type="text"
+          class="form__input"
+          [(ngModel)]="inputMoneytoChange"
+          [ngModelOptions]="{ standalone: true }"
+          [ngClass]="addStyleStateInputMoney()"
+          (keyup)="evaluateDollarMoneyBeforeChange()"
+          placeholder="Ingresa el monto a enviar"
+        />
+        <span class="form__error" *ngIf="!isValueMoneyCorrect">{{
+          errorMessageMoneyToChange
+        }}</span>
+        <button
+          class="form__btn-submit"
+          (click)="updateMoneyTransactionToSoles()"
+        >
+          Cambiar
+        </button>
+
+        <span class="form__success" *ngIf="successChange.isSuccess">{{
+          successChange.message
+        }}</span>
+      </form>
+      <form class="form__change-money" *ngIf="!isDollar">
+        <label class="form__label">Cuenta en soles para enviar tu dinero</label>
+
+        <input
+          type="text"
+          class="form__input-soles"
+          [(ngModel)]="inputSoles"
+          [ngModelOptions]="{ standalone: true }"
+          [ngClass]="addStyleStateInputSoles()"
+          (keyup)="getAccountSoles()"
+          placeholder="Ingresa tu cuenta en soles"
+        />
+        <span class="form__error" *ngIf="!isValueSolesInputCorrect">{{
+          errorMessageSoles
+        }}</span>
+        <label class="form__label"
+          >Cuenta en dólares para recibir tu dinero</label
+        >
+        <input
+          type="text"
+          class="form__input-dollar"
+          [(ngModel)]="inputDollar"
+          [ngModelOptions]="{ standalone: true }"
+          [ngClass]="addStyleStateInputDollar()"
+          (keyup)="getAccountDollar()"
+          placeholder="Ingresa tu cuenta en dólares"
+        />
+        <span class="form__error" *ngIf="!isValueDollarInputCorrect">{{
+          errorMessageDollar
+        }}</span>
+        <label class="form__label">Monto a cambiar</label>
+        <input
+          type="text"
+          class="form__input"
+          [(ngModel)]="inputMoneytoChange"
+          [ngModelOptions]="{ standalone: true }"
+          [ngClass]="addStyleStateInputMoney()"
+          (keyup)="evaluateSolesMoneyBeforeChange()"
+          placeholder="Ingresa el monto a enviar"
+        />
+        <span class="form__error" *ngIf="!isValueMoneyCorrect">{{
+          errorMessageMoneyToChange
+        }}</span>
+        <button
+          class="form__btn-submit"
+          (click)="updateMoneyTransactionToDollar()"
+        >
+          Cambiar
+        </button>
+        <span class="form__success" *ngIf="successChange.isSuccess">{{
+          successChange.message
+        }}</span>
+      </form>
+    </section>
+  </section>
+  <footer>
+    <div class="footer">
+      <p>
+        <i class="fa-regular fa-copyright"></i>
+        Todos los derechos reservados
+      </p>
+    </div>
+  </footer>
+</div>

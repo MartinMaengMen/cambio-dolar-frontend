@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DivisaService } from 'src/app/_service/divisa.service';
 
 @Component({
@@ -14,6 +14,8 @@ export class ChangeDivisaComponent {
   public cambioDolar: number = 0;
   public cambioSoles: number = 0;
   public isDollar: boolean = false;
+
+  @Input() isAuthChild: string = 'activo';
 
   constructor(private divisaService: DivisaService) {
     this.divisaService.getDivisa().subscribe((res) => {
@@ -38,5 +40,11 @@ export class ChangeDivisaComponent {
     this.isDollar = !this.isDollar;
     this.cambioDolar = 0;
     this.cambioSoles = 0;
+  }
+  showBtnIfAuth() {
+    if (this.isAuthChild === 'inactivo') {
+      return false;
+    }
+    return true;
   }
 }

@@ -1,0 +1,240 @@
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* barra de navegacion*/
+.nav {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  color: #414141;
+  /* box-shadow: 0px 1px 10px 1px lightgray; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav__title {
+  margin-left: 20px;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.nav__title-span {
+  color: #265e6c;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+/* transaccion container */
+.transaccion-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+.app-change-divisa {
+  margin: 40px 0px;
+  width: 100%;
+}
+
+/* cuerpo */
+.section-container {
+  margin-bottom: 40px;
+  width: 90%;
+}
+.btn-conitaner {
+  display: flex;
+  justify-content: space-around;
+  margin: 8px;
+  cursor: pointer;
+}
+.btn-container__btn {
+  color: #c2c1c1;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 4px;
+}
+.btn-container__btn.header-soles {
+  color: #414141;
+  border-bottom: 2px solid #265e6c;
+}
+.btn-container__btn.header-dolar {
+  color: #414141;
+  border-bottom: 2px solid #265e6c;
+}
+.form__change-money {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+}
+.form__label {
+  margin: 16px 0px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #414141;
+}
+.form__input {
+  border: none;
+  border-radius: 16px;
+  margin: auto 4px;
+  background-color: white;
+  color: #265e6c;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  padding-left: 16px;
+}
+.form__input::placeholder {
+  color: #d0d0d0;
+  font-weight: 400;
+  font-size: 16px;
+}
+.form__input.input-money-error:focus {
+  outline: unset;
+  border: 2px solid red;
+}
+.form__input.input-money-correct:focus {
+  outline: unset;
+  border: 2px solid green;
+}
+.form__input-soles {
+  border: none;
+  border-radius: 16px;
+  margin: auto 4px;
+  background-color: white;
+  color: #265e6c;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  padding-left: 16px;
+}
+.form__input-soles::placeholder {
+  color: #d0d0d0;
+  font-weight: 400;
+  font-size: 16px;
+}
+.form__input-soles.input-soles-error:focus {
+  outline: unset;
+  border: 2px solid red;
+}
+.form__input-soles.input-soles-correct:focus {
+  outline: unset;
+  border: 2px solid green;
+}
+
+.form__input-dollar {
+  border: none;
+  border-radius: 16px;
+  margin: auto 4px;
+  background-color: white;
+  color: #265e6c;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  padding-left: 16px;
+}
+.form__input-dollar::placeholder {
+  color: #d0d0d0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.form__input-dollar.input-dollar-error:focus {
+  outline: unset;
+  border: 2px solid red;
+}
+.form__input-dollar.input-dollar-correct:focus {
+  outline: unset;
+  border: 2px solid green;
+}
+
+.form__btn-submit {
+  background-color: #265e6c;
+  cursor: pointer;
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  box-shadow: 0px 0px 10px 1px lightgray;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  border: none;
+}
+
+.form__error {
+  font-size: 0.8rem;
+  color: red;
+  padding-top: 4px;
+  text-align: center;
+}
+
+.form__success {
+  font-size: 0.9rem;
+  color: green;
+  padding-top: 4px;
+  text-align: center;
+}
+/* footer  */
+
+.footer {
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  background-color: #265e6c;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.7rem;
+}
+
+.countdown-container {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.countdown {
+  color: #265e6c;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+@media (min-width: 768px) {
+  .nav__title-span {
+    font-size: 2rem;
+  }
+
+  .transaccion-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 20px;
+    height: calc(100vh - 120px);
+  }
+  .section-container {
+    margin: auto;
+    width: 90%;
+  }
+  .app-change-divisa {
+    margin: auto;
+    margin-right: 20px;
+  }
+
+  .footer {
+    position: absolute;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    width: 75%;
+    margin-right: 40px;
+  }
+}

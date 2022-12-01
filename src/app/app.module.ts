@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ChangeDivisaComponent } from './components/change-divisa/change-divisa.component';
 import { TransaccionComponent } from './pages/transaccion/transaccion.component';
@@ -14,8 +17,10 @@ import { CountdownModule } from 'ngx-countdown';
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    RegisterComponent,
     LandingPageComponent,
-    ChangeDivisaComponent,
+    ChangeDivisaComponent
     TransaccionComponent,
   ],
   imports: [

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormControl, FormGroup } from '@angular/forms';
+import { User } from 'src/app/_model/user';
+import { UserService } from 'src/app/_service/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

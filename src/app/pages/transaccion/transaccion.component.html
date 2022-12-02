@@ -23,6 +23,10 @@
         ></countdown>
       </div>
 
+      <span class="form__success beneficiary" *ngIf="isBeneficiary"
+        >Felicidades, tienes un 10% adicional en todos tus cambios</span
+      >
+
       <div class="btn-conitaner">
         <p
           (click)="buttonChange(true)"

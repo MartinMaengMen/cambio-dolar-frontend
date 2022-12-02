@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { DivisaService } from 'src/app/_service/divisa.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class ChangeDivisaComponent {
 
   @Input() isAuthChild: string = 'activo';
 
-  constructor(private divisaService: DivisaService) {
+  constructor(private divisaService: DivisaService, private router: Router) {
     this.divisaService.getDivisa().subscribe((res) => {
       this.compra = res.compra;
       this.venta = res.venta;
@@ -46,5 +47,9 @@ export class ChangeDivisaComponent {
       return false;
     }
     return true;
+  }
+
+  handleLogin() {
+    this.router.navigate(['login']);
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Divisa } from '../_model/divisa.response';
 @Injectable({
   providedIn: 'root',
@@ -11,4 +11,5 @@ export class DivisaService {
   getDivisa() {
     return this.http.get<Divisa>(this.url);
   }
+
 }

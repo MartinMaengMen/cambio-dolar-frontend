@@ -45,6 +45,7 @@ export class TransaccionComponent {
     isSuccess: false,
     message: '',
   };
+  public isBeneficiary: boolean = true;
 
   constructor(
     private bankService: BackServiceService,
@@ -165,11 +166,21 @@ export class TransaccionComponent {
   }
 
   changeToSoles(value: string) {
+    if (this.isBeneficiary) {
+      const operacion = +value * this.compra;
+      const benefit = operacion / 10;
+      return Math.round(operacion + benefit);
+    }
     const operacion = +value * this.compra;
     return Math.round(operacion);
   }
 
   changeToDollar(value: string) {
+    if (this.isBeneficiary) {
+      const operacion = +value / this.venta;
+      const benefit = operacion / 10;
+      return Math.round(operacion + benefit);
+    }
     const operacion = +value / this.venta;
     return Math.round(operacion);
   }

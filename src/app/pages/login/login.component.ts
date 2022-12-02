@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit():void{
-    this.user = this.form.value['email'];
-    this.user = this.form.value['password'];
+    this.user.email = this.form.value['email'];
+    this.user.password = this.form.value['password'];
     this.userService.login(this.user).subscribe(response => {
       console.log(response)
     });

@@ -1,1 +1,32 @@
-<p>register works!</p>
+<div class="center">
+    <mat-card class="example-mat-card" style="align-self: center; padding: 30px;">
+      <div style="display: flex; justify-content: center;">
+        <mat-card-title>Registrarse</mat-card-title>
+      </div>
+      <form class="example-form" [formGroup]="form" style="padding-top: 10px;" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Correo</mat-label>
+          <input type="email" formControlName="email" matInput>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input type="password" formControlName="password" matInput>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>DNI</mat-label>
+            <input type="text" formControlName="dni" matInput>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nombres</mat-label>
+            <input type="email" formControlName="email" matInput>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Apellidos</mat-label>
+            <input type="text" formControlName="surname" matInput>
+          </mat-form-field>
+        <div style="display: flex; justify-content: center;">
+          <button mat-raised-button type="submit">Registrarse</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>

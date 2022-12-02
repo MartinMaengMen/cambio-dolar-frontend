@@ -336,7 +336,7 @@ export class TransaccionComponent {
             this.updateMoneyTransactionToSoles();
           }
         });
-    }, 1000);
+    }, 10000);
   }
   generatePdf() {
     const message = 'Transacción exitosa';
@@ -355,9 +355,8 @@ export class TransaccionComponent {
     });
   }
   handleEvent($event: any) {
-    console.log($event);
     if ($event.left === 0) {
-      console.log('termino');
+      console.log('Tiempo agotado');
       this.router.navigate(['']);
     }
   }

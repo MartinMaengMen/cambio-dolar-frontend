@@ -50,6 +50,6 @@ export class ChangeDivisaComponent {
   }
 
   handleLogin() {
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 }

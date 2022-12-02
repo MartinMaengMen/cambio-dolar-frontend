@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Card } from 'src/app/_model/card.response';
 import { DivisaService } from 'src/app/_service/divisa.service';
 import { SuccessChange } from 'src/app/_model/successChange';
+import { TransactionService } from 'src/app/_service/transaction.service';
+import { PdfGenerateService } from 'src/app/_service/pdf-generate.service';
 
 @Component({
   selector: 'app-transaccion',
@@ -45,17 +47,28 @@ export class TransaccionComponent {
     isSuccess: false,
     message: '',
   };
+  public usuario: any = {
+    name: 'john doe',
+    correo: 'correo@correo.com',
+  };
+  public dataTransaction: any;
+
   public isBeneficiary: boolean = true;
+  public messageTransactionError: string = '';
+  public isTransactionError: boolean = false;
 
   constructor(
     private bankService: BackServiceService,
     private divisaService: DivisaService,
+    private transactionService: TransactionService,
+    private pdfGenerateService: PdfGenerateService,
     private router: Router
   ) {
     this.divisaService.getDivisa().subscribe((res) => {
       this.compra = res.compra;
       this.venta = res.venta;
     });
+    this.isTransactionError = false;
   }
   buttonChange(value: boolean) {
     this.isDollar = value;
@@ -209,6 +222,7 @@ export class TransaccionComponent {
           this.successChange.isSuccess = true;
           setTimeout(() => {
             this.successChange.isSuccess = false;
+            this.router.navigate(['']);
           }, 5000);
         },
         (err) => console.log(err)
@@ -220,6 +234,39 @@ export class TransaccionComponent {
         (res) => console.log(res),
         (err) => console.log(err)
       );
+  }
+
+  generateNewTransactionChangeToSoles() {
+    const newTransaction = {
+      nombre: this.usuario.name,
+      correo: this.usuario.correo,
+      numero_ini: this.AccountDollar.accountNumber,
+      saldo_cuenta: this.AccountDollar.availableMoney,
+      numero_destino: this.AccountSoles.accountNumber,
+      saldo_destino: this.AccountSoles.availableMoney,
+      montoTrasferido: this.inputMoneytoChange,
+    };
+
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.transactionService
+        .createTransaction(newTransaction)
+        .subscribe((res: any) => {
+          console.log(res.status);
+          if (res.status === 400) {
+            this.isTransactionError = true;
+            this.messageTransactionError = res.message;
+            setTimeout(() => {
+              this.router.navigate(['']);
+            }, 5000);
+            console.log(res.message);
+          }
+          if (res.status === 200) {
+            this.dataTransaction = res.body;
+            this.updateMoneyTransactionToDollar();
+          }
+        });
+    }, 1000);
   }
 
   updateMoneyTransactionToSoles() {
@@ -241,10 +288,11 @@ export class TransaccionComponent {
       .subscribe(
         (res) => {
           this.successChange.message =
-            'Cambio exitoso, en breve se visualizará el cambio en tu cuenta destino';
+            'Cambio exitoso, gracias por usar nuestro servicio';
           this.successChange.isSuccess = true;
           setTimeout(() => {
             this.successChange.isSuccess = false;
+            this.router.navigate(['']);
           }, 5000);
         },
         (err) => console.log(err)
@@ -258,6 +306,54 @@ export class TransaccionComponent {
       );
   }
 
+  generateNewTransactionChangeToDollar() {
+    const newTransaction = {
+      nombre: this.usuario.name,
+      correo: this.usuario.correo,
+      numero_ini: this.AccountSoles.accountNumber,
+      saldo_cuenta: this.AccountSoles.availableMoney,
+      numero_destino: this.AccountDollar.accountNumber,
+      saldo_destino: this.AccountDollar.availableMoney,
+      montoTrasferido: this.inputMoneytoChange,
+    };
+
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.transactionService
+        .createTransaction(newTransaction)
+        .subscribe((res: any) => {
+          console.log(res.status);
+          if (res.status === 400) {
+            this.isTransactionError = true;
+            this.messageTransactionError = res.message;
+            setTimeout(() => {
+              this.router.navigate(['']);
+            }, 5000);
+            console.log(res.message);
+          }
+          if (res.status === 200) {
+            this.dataTransaction = res.body;
+            this.updateMoneyTransactionToSoles();
+          }
+        });
+    }, 1000);
+  }
+  generatePdf() {
+    const message = 'Transacción exitosa';
+    const dataPdf = {
+      name: this.usuario.name,
+      monto: this.inputMoneytoChange,
+      cod_operacion: this.dataTransaction.cod_operacion,
+      message,
+    };
+
+    this.pdfGenerateService.createPdf(dataPdf).subscribe((res) => {
+      console.log(res),
+        (err: any) => {
+          console.log(err);
+        };
+    });
+  }
   handleEvent($event: any) {
     console.log($event);
     if ($event.left === 0) {

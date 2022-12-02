@@ -89,13 +89,16 @@
         }}</span>
         <button
           class="form__btn-submit"
-          (click)="updateMoneyTransactionToSoles()"
+          (click)="generateNewTransactionChangeToDollar()"
         >
           Cambiar
         </button>
 
         <span class="form__success" *ngIf="successChange.isSuccess">{{
           successChange.message
+        }}</span>
+        <span class="form__error" *ngIf="isTransactionError">{{
+          messageTransactionError
         }}</span>
       </form>
       <form class="form__change-money" *ngIf="!isDollar">
@@ -143,12 +146,15 @@
         }}</span>
         <button
           class="form__btn-submit"
-          (click)="updateMoneyTransactionToDollar()"
+          (click)="generateNewTransactionChangeToSoles()"
         >
           Cambiar
         </button>
         <span class="form__success" *ngIf="successChange.isSuccess">{{
           successChange.message
+        }}</span>
+        <span class="form__error" *ngIf="isTransactionError">{{
+          messageTransactionError
         }}</span>
       </form>
     </section>

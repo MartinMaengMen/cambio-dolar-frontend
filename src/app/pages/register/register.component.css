@@ -1,0 +1,26 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .form__info-register {
+    margin-top: 16px;
+    color: gray;
+  }
+  .form__btn-register {
+    color: #265e6c;
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  

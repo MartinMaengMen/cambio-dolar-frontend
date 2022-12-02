@@ -11,8 +11,9 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { ChangeDivisaComponent } from './components/change-divisa/change-divisa.component';
 import { TransaccionComponent } from './pages/transaccion/transaccion.component';
 import { FormsModule } from '@angular/forms';
-
 import { CountdownModule } from 'ngx-countdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,8 @@ import { CountdownModule } from 'ngx-countdown';
     LoginComponent,
     RegisterComponent,
     LandingPageComponent,
-    ChangeDivisaComponent
-    TransaccionComponent,
+    ChangeDivisaComponent,
+    TransaccionComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,8 @@ import { CountdownModule } from 'ngx-countdown';
     HttpClientModule,
     FormsModule,
     CountdownModule,
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

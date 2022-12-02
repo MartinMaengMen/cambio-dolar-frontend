@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="center">
+    <mat-card class="example-mat-card" style="align-self: center; padding: 30px;">
+      <div style="display: flex; justify-content: center;">
+        <mat-card-title>Modificar Artículo</mat-card-title>
+      </div>
+      <form class="example-form" [formGroup]="form" style="padding-top: 10px;" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Correo</mat-label>
+          <input type="email" formControlName="email" matInput>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input type="password" formControlName="password" matInput>
+        </mat-form-field>
+        <div style="display: flex; justify-content: center;">
+          <button mat-raised-button type="submit">Iniciar Sesión</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>

@@ -1,0 +1,1 @@
+export const HOST = 'https://r5swknv9uh.execute-api.sa-east-1.amazonaws.com/v1';
